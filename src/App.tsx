@@ -1,6 +1,5 @@
 import GivenVariables from './Components/GivenVariables'
 import './App.css'
-import Inventory from './Components/Inventory'
 import Calculation from './Components/Calculation'
 import { AbwehrmittelProvider } from "./Components/AbwehrmittelContext"
 import Solution from './Components/Solution'

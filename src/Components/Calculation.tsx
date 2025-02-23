@@ -10,8 +10,7 @@ const Calculation = () => {
   const {
     Abwehrmittel,
     setSolution,
-    favouriteAbwehrmittel,
-    setFavouriteAbwehrmittel
+    favouriteAbwehrmittel
   } = context;
 
   const [width, setWidth] = useState<number | null>(0);
