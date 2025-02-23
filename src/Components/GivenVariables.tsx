@@ -1,4 +1,3 @@
-import React from 'react'
 import { useContext } from 'react';
 import { MittelType } from '../Defaults/types.ts'
 import { minWidth, maxWidth } from './AbwehrmittelContext.tsx'
@@ -8,7 +7,7 @@ const GivenVariables = () => {
 
     const context = useContext(AbwehrmittelContext);
     if (!context) throw new Error("AbwehrComponent must be inside AbwehrmittelProvider");
-    const { Abwehrmittel, setAbwehrmittel } = context;
+    const { Abwehrmittel } = context;
 
       
 

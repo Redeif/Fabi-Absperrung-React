@@ -15,7 +15,6 @@ const Inventory = () => {
             value = 0
             event.target.value = ''
         }
-        let newAbwehrmittel = Abwehrmittel;
         setAbwehrmittel((newAbwehrmittel) =>
             newAbwehrmittel.map((mittel) =>
               mittel.name === changeMittel ? { ...mittel, inventory: value } : mittel

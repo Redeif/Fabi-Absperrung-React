@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react'
-import { useState, useContext } from 'react'
-import { AbwehrmittelType, MittelType } from '../Defaults/types.ts'
+import {  useContext } from 'react'
 import { AbwehrmittelContext } from "./AbwehrmittelContext";
 
 const Solution = () => {
 
   const context = useContext(AbwehrmittelContext);
   if (!context) throw new Error("AbwehrComponent must be inside AbwehrmittelProvider");
-  const { solution, favouriteAbwehrmittel } = context;
+  const { solution } = context;
 
   console.log(`Solution ${solution}`)
   console.log(solution)

@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
-import { AbwehrmittelType, MittelType } from "../Defaults/types.ts";
+import { useState, useContext } from "react";
 import { AbwehrmittelContext } from "./AbwehrmittelContext";
-import { minWidth, maxWidth } from "./AbwehrmittelContext";
+import { maxWidth } from "./AbwehrmittelContext";
+import { MittelType } from "../Defaults/types";
 
 const Calculation = () => {
   const context = useContext(AbwehrmittelContext);
