@@ -20,6 +20,7 @@ const Solution = () => {
           }
       }
       setBestSolution(currentBestSolution.name)
+      console.log(bestSolution)
     });
 
 
