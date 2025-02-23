@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { AbwehrmittelContext } from "./AbwehrmittelContext";
 import { maxWidth } from "./AbwehrmittelContext";
-import { MittelType } from "../Defaults/types";
+import { MittelType, SolutionType } from "../Defaults/types";
 
 const Calculation = () => {
   const context = useContext(AbwehrmittelContext);
@@ -17,7 +17,7 @@ const Calculation = () => {
 
   const calculate = () => {
     if (width === null || width <= 2 * maxWidth) {
-      setSolution([]);
+      setSolution(null);
       return;
     }
 
@@ -26,7 +26,7 @@ const Calculation = () => {
     );
 
     if (!currentAbwehrmittel) {
-      setSolution([]);
+      setSolution(null);
       return;
     }
 
@@ -36,8 +36,8 @@ const Calculation = () => {
 
       calculation.push(calcNumberForAbwehrmittel(width, element))
     });
-    console.log(calculation)
-    setSolution(calculation);
+    let returnSolution: SolutionType = ({solutionWidth: width,types: calculation, bestSolution: ''});
+    setSolution(returnSolution);
   };
 
 
@@ -59,20 +59,18 @@ const Calculation = () => {
     <div className="variables">
       <h1>Berechnung</h1>
       <div className="input">
-        <div>
           <label>Breite der Absperrung (in cm)</label>
-
-        </div>
-        <div>
           <input
             type="number"
             onChange={(e) => {
               const value = parseFloat(e.target.value);
               setWidth(isNaN(value) ? null : value);
             }}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter'){
+                calculate()}
+            }}
           />
-
-        </div>
       </div>
       <button onClick={calculate}>Berechnen</button>
     </div>
@@ -81,17 +79,3 @@ const Calculation = () => {
 
 export default Calculation;
 
-
-/*
-          <label>Bevorzugtes Absperrmittel</label>
-          <select
-            value={favouriteAbwehrmittel}
-            onChange={(e) => setFavouriteAbwehrmittel(e.target.value)}
-          >
-            {Abwehrmittel.map((mittel: MittelType) => (
-              <option key={mittel.name} value={mittel.name}>
-                {mittel.name}
-              </option>
-            ))}
-          </select>
-*/

@@ -1,13 +1,13 @@
 import React, { createContext, useState, ReactNode } from "react";
-import { MittelType } from "../Defaults/types";
+import { MittelType, SolutionType } from "../Defaults/types";
 
 type AbwehrContextType = {
   Abwehrmittel: MittelType[];
   setAbwehrmittel: React.Dispatch<React.SetStateAction<MittelType[]>>;
   favouriteAbwehrmittel: string;
   setFavouriteAbwehrmittel: React.Dispatch<React.SetStateAction<string>>;
-  solution: MittelType[];
-  setSolution: React.Dispatch<React.SetStateAction<MittelType[]>>;
+  solution: SolutionType | null;
+  setSolution: React.Dispatch<React.SetStateAction<SolutionType | null>>;
 };
 
 export const AbwehrmittelContext = createContext<AbwehrContextType | undefined>(undefined);
@@ -20,7 +20,7 @@ export const AbwehrmittelProvider = ({ children }: { children: ReactNode }) => {
   ]);
 
   const [favouriteAbwehrmittel, setFavouriteAbwehrmittel] = useState<string>(Abwehrmittel[1].name);
-  const [solution, setSolution] = useState<MittelType[]>([]);
+  const [solution, setSolution] = useState<SolutionType | null>(null);
 
   return (
     <AbwehrmittelContext.Provider value={{ Abwehrmittel, setAbwehrmittel, favouriteAbwehrmittel, setFavouriteAbwehrmittel, solution, setSolution }}>

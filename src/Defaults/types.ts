@@ -6,3 +6,10 @@ export type MittelType = {
 
 export type AbwehrmittelType = 
     MittelType[];
+
+
+export type SolutionType ={
+    solutionWidth: number;
+    types: MittelType[];
+    bestSolution: string;
+  }

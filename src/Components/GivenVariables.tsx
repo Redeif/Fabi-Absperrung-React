@@ -13,7 +13,7 @@ const GivenVariables = () => {
 
   return (
     <div className='variables'>
-    <h2>GivenVariables</h2>
+    <h2>Gegebene Variablen</h2>
     <table>
       <tbody>
     <tr>
@@ -32,7 +32,7 @@ const GivenVariables = () => {
     <table>
       <tbody>
           <tr>
-              <th>minimaler Abstand</th>
+              <th>minimaler Abstand (nicht in benutzung)</th>
               <th>{minWidth}</th>
           </tr>
           <tr>
