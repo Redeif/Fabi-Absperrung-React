@@ -62,7 +62,7 @@ const Calculation = () => {
       <div className="input">
         <div>
           <label>Breite der Absperrung (in cm)</label>
-          <label>Bevorzugtes Absperrmittel</label>
+
         </div>
         <div>
           <input
@@ -72,6 +72,19 @@ const Calculation = () => {
               setWidth(isNaN(value) ? null : value);
             }}
           />
+
+        </div>
+      </div>
+      <button onClick={calculate}>Berechnen</button>
+    </div>
+  );
+};
+
+export default Calculation;
+
+
+/*
+          <label>Bevorzugtes Absperrmittel</label>
           <select
             value={favouriteAbwehrmittel}
             onChange={(e) => setFavouriteAbwehrmittel(e.target.value)}
@@ -82,11 +95,4 @@ const Calculation = () => {
               </option>
             ))}
           </select>
-        </div>
-      </div>
-      <button onClick={calculate}>Berechnen</button>
-    </div>
-  );
-};
-
-export default Calculation;
+*/

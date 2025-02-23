@@ -73,8 +73,9 @@
 
 .information{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 2vw;
+  flex-wrap: wrap;
 }
 
 .variables{
@@ -103,3 +104,6 @@
   gap: 1vw;
   align-items:center;
 }
+
+
+

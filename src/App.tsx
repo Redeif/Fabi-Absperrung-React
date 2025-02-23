@@ -14,7 +14,6 @@ const App = () => {
         <div className='information'>
           <Calculation></Calculation>
           <GivenVariables></GivenVariables>
-          <Inventory></Inventory>
         </div>
         <Solution></Solution>
       </div>
