@@ -51,6 +51,26 @@
   gap: 2vw;
 }
 
+.someSolution{
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 2vw;
+}
+
+.bestSolution{
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 2vw;
+  color: green;
+  font-weight: bold;
+}
+
+.solutiongroup{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .information{
   display: flex;
   justify-content: space-between;

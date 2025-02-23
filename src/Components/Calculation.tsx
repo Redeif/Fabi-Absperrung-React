@@ -14,7 +14,7 @@ const Calculation = () => {
     setFavouriteAbwehrmittel
   } = context;
 
-  const [width, setWidth] = useState<number | null>(null);
+  const [width, setWidth] = useState<number | null>(0);
 
   const calculate = () => {
     if (width === null || width <= 2 * maxWidth) {
@@ -32,20 +32,29 @@ const Calculation = () => {
     }
 
     // Berechnung der Anzahl der Absperrmittel
-    const availableWidth = width - 2 * maxWidth; // Restliche Breite nach den Randabständen
-    const totalSegmentWidth = currentAbwehrmittel.width + maxWidth; // Ein Absperrmittel + ein Abstand
-    const numberOfMittel = Math.ceil(availableWidth / totalSegmentWidth); // Anzahl der Absperrmittel
+    let calculation: MittelType[] = []
+    Abwehrmittel.forEach(element => {
 
-    setSolution([
-      {
-        name: favouriteAbwehrmittel,
-        width: (availableWidth-numberOfMittel*currentAbwehrmittel.width)/(numberOfMittel-1),
-        inventory: numberOfMittel
-      }
-    ]);
-
-    console.log(`Anzahl der Absperrmittel: ${numberOfMittel}`);
+      calculation.push(calcNumberForAbwehrmittel(width, element))
+    });
+    console.log(calculation)
+    setSolution(calculation);
   };
+
+
+  const calcNumberForAbwehrmittel = (completeWidth: number, currentAbwehrmittel: MittelType) =>{
+    const availableWidth = completeWidth - maxWidth;
+    const totalSegmentWidth = currentAbwehrmittel.width + maxWidth; // Ein Absperrmittel + ein Abstand
+    const numberOfMittel = availableWidth / totalSegmentWidth;
+    const averageWidth = parseFloat(((completeWidth-(Math.ceil(numberOfMittel)*currentAbwehrmittel.width))/(Math.ceil(numberOfMittel)+1)).toFixed(2));
+    const returnObj: MittelType = {
+      name: currentAbwehrmittel.name,
+      width: averageWidth,      
+      inventory: numberOfMittel
+    }
+    return returnObj;
+  }
+
 
   return (
     <div className="variables">
