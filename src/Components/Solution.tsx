@@ -26,23 +26,38 @@ const Solution = () => {
   },[solution]);
 
 
+  const deleteSolutions = () =>{
+    setOldSolutions([])
+  }
+
+
   return (
       <div className='variables'>
         <h2>Ergebnis</h2>
-        {solution.length != 0 && 
-        <div className='solutiongroup'>
-          {solution.map((element, index)=>{
-          return <div className={element.name !=bestSolution ? 'someSolution' : 'bestSolution'} key={index}>
-              <p>{element.name}</p>
-              <p>Menge Benötigt: {Math.ceil(element.inventory)} Stk.</p>
-              <p>Gleichmäßiger Abstand: {element.width} cm</p>
-            </div>
-          })}
+        <button onClick={deleteSolutions}>Delete old Solutions</button>
+        {oldSolutions.length != 0 &&
+        oldSolutions.map((currentSolution,i)=>{
+          return <div>
+                  <div className='solutiongroup' key={i}>
+                    {currentSolution.map((element, index)=>{
+                    return <div className='someSolution' key={index}>
+                              <p>{element.name}</p>
+                              <p>Menge Benötigt: {Math.ceil(element.inventory)} Stk.</p>
+                              <p>Gleichmäßiger Abstand: {element.width} cm</p>
+                            </div>
+                      
+                    })}
+                  </div>
+                  </div>
+            
           
-        </div>}
+        })
+         }
         
       </div>
   )
 }
 
 export default Solution
+
+//{element.name !=bestSolution ? 'someSolution' : 'bestSolution'} 
