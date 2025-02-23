@@ -57,7 +57,7 @@ const Calculation = () => {
 
   return (
     <div className="variables">
-      <h1>Berechnung</h1>
+      <h2>Berechnung</h2>
       <div className="input">
           <label>Breite der Absperrung (in cm)</label>
           <input

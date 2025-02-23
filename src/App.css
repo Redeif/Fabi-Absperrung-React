@@ -39,9 +39,9 @@
   color: #888;
 }
 
-
-
-
+.ergebnisse{
+  min-width: 60%;
+}
 
 
 .main{
@@ -53,17 +53,11 @@
   gap: 2vw;
 }
 
-.ergebnisse{
-  min-width: 60%;
-}
-
 .mainSolution{
   display: flex;
   flex-direction: column;
   gap: 2vw;
-  border: 1px solid #000;
   border-radius: 5px;
-  padding: 2vw;
   align-items: center;
 }
 
@@ -78,7 +72,7 @@
 .someSolution{
   border: 1px solid #000;
   border-radius: 5px;
-  padding: 2vw;
+  padding: 1vw;
   width: 100%;
 }
 
@@ -86,7 +80,7 @@
   width: 100%;
   border: 1px solid green;
   border-radius: 5px;
-  padding: 2vw;
+  padding: 1vw;
   color: green;
   font-weight: bold;
 }
@@ -95,6 +89,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  gap: 1vw;
 }
 
 .information{

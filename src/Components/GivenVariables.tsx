@@ -32,7 +32,7 @@ const GivenVariables = () => {
     <table>
       <tbody>
           <tr>
-              <th>minimaler Abstand (nicht in benutzung)</th>
+              <th>minimaler Abstand</th>
               <th>{minWidth}</th>
           </tr>
           <tr>

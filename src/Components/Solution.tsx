@@ -50,8 +50,8 @@ const Solution = () => {
                     {currentSolution.types.map((element, index)=>{
                     return <div className={element.name !=currentSolution.bestSolution ? 'someSolution' : 'bestSolution'}  key={index}>
                               <p>{element.name}</p>
-                              <p>Menge Benötigt: {Math.ceil(element.inventory)} Stk.</p>
-                              <p>Gleichmäßiger Abstand: {element.width} cm</p>
+                              <p>Menge: {Math.ceil(element.inventory)} Stk.</p>
+                              <p>Durchschntl. Abstand: {element.width} cm</p>
                             </div>
                       
                     })}
