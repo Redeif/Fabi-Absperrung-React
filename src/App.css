@@ -1,8 +1,6 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .logo {
@@ -39,4 +37,49 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+
+
+
+
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2vw;
+}
+
+.information{
+  display: flex;
+  justify-content: space-between;
+  gap: 2vw;
+}
+
+.variables{
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 2vw;
+}
+
+.input{
+  display: flex;
+  justify-content: start;
+  padding: 2vw 0vw;
+}
+
+.inventory{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1vw;
+  align-items:start;
+}
+
+.inventory-item{
+  display: flex;
+  justify-content: space-between;
+  gap: 1vw;
+  align-items:center;
 }

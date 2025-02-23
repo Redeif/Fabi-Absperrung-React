@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import GivenVariables from './Components/GivenVariables'
 import './App.css'
+import Inventory from './Components/Inventory'
+import Calculation from './Components/Calculation'
+import { AbwehrmittelProvider } from "./Components/AbwehrmittelContext"
+import Solution from './Components/Solution'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <AbwehrmittelProvider >
+
+      <h1>Fabi's Absperrmittel Rechner</h1>
+      <div className='main'>
+        <div className='information'>
+          <Calculation></Calculation>
+          <GivenVariables></GivenVariables>
+          <Inventory></Inventory>
+        </div>
+        <Solution></Solution>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </AbwehrmittelProvider>
+  );
+};
 
 export default App
+
+
+//<AbwehrComponent />
