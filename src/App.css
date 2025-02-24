@@ -179,3 +179,47 @@
 .error{
   color: red;
 }
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Entfernt den Abstand zwischen den Zellen */
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc; /* Fügt eine feine Linie zwischen den Zellen hinzu */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Fügt einen Hintergrund für jede ungerade Zeile hinzu */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff; /* Fügt einen Hintergrund für jede gerade Zeile hinzu */
+}
+
+td:first-child, td:last-child {
+  font-weight: bold; /* Hebt die Wand- und Abstandsdaten hervor */
+}
+
+td {
+  font-size: 14px;
+}
+
+table th {
+  background-color: #f2f2f2;
+  padding: 12px;
+  text-align: left;
+}
+
+table, th, td {
+  border: 1px solid #ddd; /* Fügt eine feine Linie um die gesamte Tabelle hinzu */
+}
+
+table td {
+  font-size: 16px;
+}
+

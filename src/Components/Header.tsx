@@ -4,10 +4,10 @@ const Header = () => {
     <div className="header">
 
         <h2>
-        <Link to="/Fabi-Absperrung-React/">Home</Link>
+        <Link to="/">Home</Link>
         </h2>
         <h2>
-        <Link to="/Fabi-Absperrung-React/trailanderror">Trail  and Error</Link>
+        <Link to="/trialanderror">Trial  and Error</Link>
         </h2>
 
     </div>

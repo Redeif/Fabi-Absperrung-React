@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { AbwehrmittelContext, maxWidth, minWidth } from "../Components/AbwehrmittelContext";
 import GivenVariables from "../Components/GivenVariables";
 
-const Trailanderror = () => {
+const Trialanderror = () => {
   const [width, setWidth] = useState<number | null>(0);
   const [averageWidth, setAverageWidth] = useState(0);
 
@@ -101,8 +101,35 @@ const Trailanderror = () => {
         </div>
         </div>
     </div>
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <td>Wand</td>
+            {Abwehrmittel.map((mittel) => {
+                if (mittel.inventory > 0) {
+                  const tableCells = [];
+                  for (let index = 0; index < mittel.inventory; index++) {
+                    tableCells.push(
+                      <>
+                        <td key={`distanz-${mittel.name}-${index}`}>{averageWidth} cm</td>
+                        <td key={`mittel-${mittel.name}-${index}`}>{mittel.name}</td>
+                      </>
+                    );
+                  }
+                  return <>{tableCells}</>;
+                } else {
+                  return null;
+                }
+              })}
+            <td>{averageWidth} cm</td>
+            <td>Wand</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     </div>
   );
 };
 
-export default Trailanderror;
+export default Trialanderror;
