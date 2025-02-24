@@ -162,9 +162,20 @@
 
 .avarageSolution{
   width: fit-content;
-  border: 1px solid green;
+  border: 1px solid #000;
   border-radius: 5px;
   padding: 1vw;
-  color: green;
   font-weight: bold;
+}
+
+.goodSolution{
+  color: green;
+}
+
+.badSolution{
+  color: orange;
+}
+
+.error{
+  color: red;
 }

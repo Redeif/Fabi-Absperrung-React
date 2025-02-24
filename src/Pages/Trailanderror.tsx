@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { AbwehrmittelContext, maxWidth } from "../Components/AbwehrmittelContext";
+import { AbwehrmittelContext, maxWidth, minWidth } from "../Components/AbwehrmittelContext";
 import GivenVariables from "../Components/GivenVariables";
 
 const Trailanderror = () => {
@@ -79,7 +79,7 @@ const Trailanderror = () => {
                 );
               }}
             />
-            <button onClick={(e) =>{
+            <button onClick={() =>{
                               setAbwehrmittel((prev) =>
                                 prev.map((searcheMittel) =>
                                   searcheMittel.name === mittel.name ? { ...searcheMittel, inventory: 0 } : searcheMittel
@@ -89,9 +89,17 @@ const Trailanderror = () => {
           </div>
         ))}
         <div className="avarageSolution">
-          {averageWidth <0 && <p>Es wurden zu viele Absperrmittel genutzt</p>}
-          {averageWidth!=0 ? <p>Abstand zwischen Abwehrmittel: {averageWidth} cm</p> : <p>Es müssen mehr Daten eingegeben werden</p> }</div>
-      </div>
+        {averageWidth < 0 ? (
+            <p className="error">Es wurden zu viele Absperrmittel genutzt</p>
+          ) : averageWidth === 0 ? (
+            <p className="error">Es fehlen Informationen</p>
+          ) : averageWidth >= minWidth && averageWidth <= maxWidth ? (
+            <p className="goodSolution">Abstand zwischen Abwehrmittel: {averageWidth}</p>
+          ) : (
+            <p className="badSolution">Abstand zwischen Abwehrmittel: {averageWidth}</p>
+          )}
+        </div>
+        </div>
     </div>
     </div>
   );
