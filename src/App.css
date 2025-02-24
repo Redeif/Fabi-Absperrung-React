@@ -113,7 +113,7 @@
 .variables{
   border: 1px solid #000;
   border-radius: 5px;
-  padding: 2vw;
+  padding: 1vw;
 }
 
 .input{
@@ -121,7 +121,7 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
-  padding: 2vw 0vw;
+  padding: 1vw 0vw;
 }
 
 .inventory{
@@ -148,6 +148,8 @@
 }
 
 .abwehrmittel{
+  display: flex;
+  flex-direction: column;
   border: 1px solid #000;
   padding: 1vw;
   border-radius: 5px;

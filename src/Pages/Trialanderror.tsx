@@ -65,7 +65,7 @@ const Trialanderror = () => {
       <div className="inputNumberMittel">
         {Abwehrmittel.map((mittel) => (
           <div className="abwehrmittel" key={mittel.name}>
-            <h2>{mittel.name}</h2>
+            <h3>{mittel.name}</h3>
             <p>{mittel.width} cm</p>
             <input
               type="number"
