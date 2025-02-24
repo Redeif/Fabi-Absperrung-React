@@ -1,21 +1,23 @@
-import GivenVariables from './Components/GivenVariables'
+import { Routes, Route } from "react-router";
+
 import './App.css'
-import Calculation from './Components/Calculation'
+
 import { AbwehrmittelProvider } from "./Components/AbwehrmittelContext"
-import Solution from './Components/Solution'
+
+import Header from './Components/Header'
+import CalculatorPage from './Pages/CalculatorPage';
+import Trailanderror from "./Pages/Trailanderror";
 
 const App = () => {
   return (
     <AbwehrmittelProvider >
-
       <h1>Fabi's Absperrmittel Rechner</h1>
-      <div className='main'>
-        <div className='information'>
-          <Calculation></Calculation>
-          <GivenVariables></GivenVariables>
-        </div>
-        <Solution></Solution>
-      </div>
+      <Header></Header>
+        <Routes>
+          <Route path="/Fabi-Absperrung-React/" element={<CalculatorPage />} />
+          <Route path="/Fabi-Absperrung-React/trailanderror" element={<Trailanderror></Trailanderror>} />
+        </Routes>
+      
     </AbwehrmittelProvider>
   );
 };

@@ -39,6 +39,16 @@
   color: #888;
 }
 
+
+
+
+
+.header{
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+}
+
 .ergebnisse{
   min-width: 60%;
 }
@@ -107,6 +117,7 @@
 }
 
 .input{
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -129,4 +140,31 @@
 }
 
 
+.inputNumberMittel{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
 
+}
+
+.abwehrmittel{
+  border: 1px solid #000;
+  padding: 1vw;
+  border-radius: 5px;
+}
+
+.mainTrailandError{
+  display: flex;
+  gap: 1vw;
+  flex-wrap: wrap;
+}
+
+
+.avarageSolution{
+  width: fit-content;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 1vw;
+  color: green;
+  font-weight: bold;
+}
