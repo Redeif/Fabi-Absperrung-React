@@ -17,7 +17,8 @@ export const AbwehrmittelProvider = ({ children }: { children: ReactNode }) => {
     { name: "OktaBlock", width: 27, inventory: 0 },
     { name: "MVB3X", width: 53, inventory: 0 },
     { name: "HStop 3", width: 120, inventory: 0 },
-    { name: "CITYSAFE", width: 5052, inventory: 0}
+    { name: "CITYSAFE", width: 5052, inventory: 0},
+    { name: "ARMIS ONE", width: 62, inventory: 0}
   ]);
 
   const [favouriteAbwehrmittel, setFavouriteAbwehrmittel] = useState<string>(Abwehrmittel[1].name);
