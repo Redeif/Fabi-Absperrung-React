@@ -7,6 +7,7 @@ import { AbwehrmittelProvider } from "./Components/AbwehrmittelContext"
 import Header from './Components/Header'
 import CalculatorPage from './Pages/CalculatorPage';
 import Trialanderror from "./Pages/Trialanderror";
+import SameSpace from "./Pages/SameSpace";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<CalculatorPage />} />
           <Route path="/trialanderror" element={<Trialanderror></Trialanderror>} />
+          <Route path="/samespace" element={<SameSpace></SameSpace>}/>
         </Routes>
       
     </AbwehrmittelProvider>

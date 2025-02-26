@@ -8,6 +8,12 @@ type AbwehrContextType = {
   setFavouriteAbwehrmittel: React.Dispatch<React.SetStateAction<string>>;
   solution: SolutionType | null;
   setSolution: React.Dispatch<React.SetStateAction<SolutionType | null>>;
+  averageWidth: number;
+  setAverageWidth: React.Dispatch<React.SetStateAction<number>>;
+  restWidth: number;
+  setRestWidth: React.Dispatch<React.SetStateAction<number>>;
+  calculateAvarageWidth (width: number | null): void;
+  calculateRestWidth (width: number | null, widthBetween: number) : void;
 };
 
 export const AbwehrmittelContext = createContext<AbwehrContextType | undefined>(undefined);
@@ -23,9 +29,60 @@ export const AbwehrmittelProvider = ({ children }: { children: ReactNode }) => {
 
   const [favouriteAbwehrmittel, setFavouriteAbwehrmittel] = useState<string>(Abwehrmittel[1].name);
   const [solution, setSolution] = useState<SolutionType | null>(null);
+  const [averageWidth, setAverageWidth] = useState<number>(0)
+  const [restWidth, setRestWidth] = useState<number>(0)
+
+
+  const calculateAvarageWidth = (width: number |null) => {
+    if (width === null || width === 0){
+      setAverageWidth(0)
+      return;
+    }
+    if (width - maxWidth <0){
+      setAverageWidth(0)
+      return;
+    }
+    const availableWidth = width - maxWidth;
+    let totalSegmentWidth = 0;
+    let abwehrmittelbreiteGesamt = 0;
+    let totalInventory = 0;
+
+    Abwehrmittel.forEach((element) => {
+      totalSegmentWidth += element.inventory * (element.width + maxWidth);
+      abwehrmittelbreiteGesamt += element.inventory * element.width;
+      totalInventory += element.inventory
+    });
+    if (totalSegmentWidth === 0 || totalInventory ===0){
+      setAverageWidth(0)
+      return
+    }
+
+    setAverageWidth(
+      parseFloat(((availableWidth - abwehrmittelbreiteGesamt) / (totalInventory)).toFixed(2))
+    );
+
+  };
+
+  const calculateRestWidth = (width: number | null, widthBetween: number) => {
+    if(width === null){
+      setRestWidth(0)
+      return
+    }
+    let totalSegmentWidth = 0
+    Abwehrmittel.forEach((element) => {
+      totalSegmentWidth += element.inventory * (element.width + widthBetween);
+    });
+   setRestWidth(width-totalSegmentWidth)
+  }
 
   return (
-    <AbwehrmittelContext.Provider value={{ Abwehrmittel, setAbwehrmittel, favouriteAbwehrmittel, setFavouriteAbwehrmittel, solution, setSolution }}>
+    <AbwehrmittelContext.Provider 
+    value={{ Abwehrmittel, setAbwehrmittel, 
+    favouriteAbwehrmittel, setFavouriteAbwehrmittel, 
+    solution, setSolution, 
+    averageWidth, setAverageWidth, 
+    restWidth, setRestWidth,
+     calculateAvarageWidth, calculateRestWidth }}>
       {children}
     </AbwehrmittelContext.Provider>
   );

@@ -9,6 +9,9 @@ const Header = () => {
         <h2>
         <Link to="/trialanderror">Trial  and Error</Link>
         </h2>
+        <h2>
+        <Link to="/samespace">Same Space</Link>
+        </h2>
 
     </div>
   )

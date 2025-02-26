@@ -1,23 +1,24 @@
 import { useState, useContext, useEffect } from "react";
-import { AbwehrmittelContext, maxWidth } from "../Components/AbwehrmittelContext";
+import { AbwehrmittelContext, maxWidth, minWidth } from "../Components/AbwehrmittelContext";
 import GivenVariables from "../Components/GivenVariables";
 import Visualisation from "../Components/Visualisation";
 import InputMittel from "../Components/InputMittel";
 
-const Trialanderror = () => {
+const SameSpace = () => {
   const [width, setWidth] = useState<number | null>(0);
+  const [widthBetween, setWidthBetween] = useState<number>(minWidth)
 
   const context = useContext(AbwehrmittelContext);
   if (!context) return <p>Fehler: Context nicht gefunden!</p>;
 
-  const { Abwehrmittel, calculateAvarageWidth, averageWidth } = context;
+  const { Abwehrmittel, calculateAvarageWidth, averageWidth, calculateRestWidth, restWidth } = context;
 
-  
 
   // useEffect für automatische Berechnung
   useEffect(() => {
     calculateAvarageWidth(width);
-  }, [width, Abwehrmittel]);
+    calculateRestWidth(width, widthBetween)
+  }, [width, Abwehrmittel, widthBetween]);
 
   return (
     <div className="mainTrailandError">
@@ -33,14 +34,23 @@ const Trialanderror = () => {
             setWidth(isNaN(value) ? null : value);
           }}
         />
+        <label>Abstand zwischen Absperrmittel (in cm)</label>
+        <input
+          type="number"
+          value={widthBetween}
+          onChange={(e) => {
+            const value = parseFloat(e.target.value);
+            setWidthBetween(value);
+          }}
+        />
       </div>
       <InputMittel averageWidth={averageWidth}/>
     </div>
     <div>
-      <Visualisation widthBetween={averageWidth} widthEnd={averageWidth} />
+      <Visualisation widthBetween={widthBetween} widthEnd={restWidth} />
     </div>
     </div>
   );
 };
 
-export default Trialanderror;
+export default SameSpace;
