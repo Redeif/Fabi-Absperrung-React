@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { AbwehrmittelContext, maxWidth } from "../Components/AbwehrmittelContext";
+import { AbwehrmittelContext } from "../Components/AbwehrmittelContext";
 import GivenVariables from "../Components/GivenVariables";
 import Visualisation from "../Components/Visualisation";
 import InputMittel from "../Components/InputMittel";

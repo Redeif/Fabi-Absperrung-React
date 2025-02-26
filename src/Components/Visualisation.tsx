@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AbwehrmittelContext, minWidth, maxWidth} from "../Components/AbwehrmittelContext";
+import { AbwehrmittelContext, maxWidth} from "../Components/AbwehrmittelContext";
 
 interface VisualisationProps {
   widthBetween: number,
