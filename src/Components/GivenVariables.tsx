@@ -12,7 +12,7 @@ const GivenVariables = () => {
       
 
   return (
-    <div className='variables'>
+    <div className='defaultBox variables'>
     <h2>Gegebene Variablen</h2>
     <table>
       <tbody>

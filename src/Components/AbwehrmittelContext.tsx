@@ -38,11 +38,6 @@ export const AbwehrmittelProvider = ({ children }: { children: ReactNode }) => {
       setAverageWidth(0)
       return;
     }
-    if (width - maxWidth <0){
-      setAverageWidth(0)
-      return;
-    }
-    const availableWidth = width - maxWidth;
     let totalSegmentWidth = 0;
     let abwehrmittelbreiteGesamt = 0;
     let totalInventory = 0;
@@ -52,27 +47,34 @@ export const AbwehrmittelProvider = ({ children }: { children: ReactNode }) => {
       abwehrmittelbreiteGesamt += element.inventory * element.width;
       totalInventory += element.inventory
     });
-    if (totalSegmentWidth === 0 || totalInventory ===0){
-      setAverageWidth(0)
+    if (totalSegmentWidth === 0 || totalInventory === 0){
+      setAverageWidth(width)
       return
     }
 
     setAverageWidth(
-      parseFloat(((availableWidth - abwehrmittelbreiteGesamt) / (totalInventory)).toFixed(2))
+      parseFloat(((width - abwehrmittelbreiteGesamt) / (totalInventory+1)).toFixed(2))
     );
 
   };
 
   const calculateRestWidth = (width: number | null, widthBetween: number) => {
-    if(width === null){
+    if(width === null || width == 0){
       setRestWidth(0)
       return
     }
     let totalSegmentWidth = 0
+    let totalInventory = 0
     Abwehrmittel.forEach((element) => {
+      totalInventory += element.inventory
       totalSegmentWidth += element.inventory * (element.width + widthBetween);
     });
-   setRestWidth(width-totalSegmentWidth)
+    if(totalInventory== 0){
+      setRestWidth(width)
+    }else{
+      setRestWidth(width-totalSegmentWidth+widthBetween)
+    }
+   
   }
 
   return (

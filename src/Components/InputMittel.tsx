@@ -23,9 +23,10 @@ const InputMittel = ({averageWidth}: InputMittel) => {
               value={mittel.inventory != 0 ? mittel.inventory: ""} // Damit das Input-Feld immer den aktuellen Wert zeigt
               onChange={(e) => {
                 const value = parseInt(e.target.value) || 0;
+                const newValue = Math.max(0, Number(value));
                 setAbwehrmittel((prev) =>
                   prev.map((searcheMittel) =>
-                    searcheMittel.name === mittel.name ? { ...searcheMittel, inventory: value } : searcheMittel
+                    searcheMittel.name === mittel.name ? { ...searcheMittel, inventory: newValue } : searcheMittel
                   )
                 );
               }}
@@ -45,9 +46,9 @@ const InputMittel = ({averageWidth}: InputMittel) => {
           ) : averageWidth === 0 ? (
             <p className="error">Es fehlen Informationen</p>
           ) : averageWidth >= minWidth && averageWidth <= maxWidth ? (
-            <p className="goodSolution">Abstand zwischen Abwehrmittel: {averageWidth} cm</p>
+            <p className="goodSolution">Abstand ausgemittelt für alle Abstände (incl. Wänden): {averageWidth} cm</p>
           ) : (
-            <p className="badSolution">Abstand zwischen Abwehrmittel: {averageWidth} cm</p>
+            <p className="badSolution">Abstand ausgemittelt für alle Abstände (incl. Wänden): {averageWidth} cm</p>
           )}
         </div>
         </div>

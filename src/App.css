@@ -110,10 +110,19 @@
   flex-wrap: wrap;
 }
 
-.variables{
+.defaultBox{
   border: 1px solid #000;
   border-radius: 5px;
   padding: 1vw;
+}
+
+.variables{
+  width: 15%;
+  min-width: 200px;
+}
+
+.calculation{
+  width: 75%;
 }
 
 .input{
