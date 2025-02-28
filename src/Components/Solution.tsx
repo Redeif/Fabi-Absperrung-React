@@ -35,7 +35,7 @@ const Solution = () => {
 
 
   return (
-      <div className='variables ergebnisse'>
+      <div className='defaultBox ergebnisse'>
         <h2>Ergebnis</h2>
         <button onClick={deleteSolutions}>Delete old Solutions</button>
         <div className='mainSolution'>
