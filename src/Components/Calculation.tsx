@@ -56,7 +56,7 @@ const Calculation = () => {
 
 
   return (
-    <div className="variables">
+    <div className="defaultBox">
       <h2>Berechnung</h2>
       <div className="input">
           <label>Breite der Absperrung (in cm)</label>
